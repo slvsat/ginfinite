@@ -35,7 +35,7 @@ func ToPureGinJSON(handler HandlerFunc) func(c *gin.Context) {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
 		}
-		c.JSON(http.StatusOK, result)
+		c.JSON(result.status, result.body)
 		return
 	}
 }
